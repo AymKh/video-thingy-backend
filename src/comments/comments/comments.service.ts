@@ -13,4 +13,8 @@ export class CommentsService {
         return this.commentRepo.find();
     }
 
+    getOneComment(id: number) {
+        return this.commentRepo.find({ where: { comment_id: id } });
+    }
+
 }
