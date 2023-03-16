@@ -42,7 +42,7 @@ export class VideosController {
     // DELETE ONE VIDEO
     @Delete(':id')
     async deleteOneVideo(@Param('id', ParseIntPipe) id: number) {
-        return null;
+        return this.vService.deleteOneVideo(id);
     }
 
 }

@@ -38,4 +38,9 @@ export class VideosService {
 
         return saved;
     }
+
+    // DELETE ONE
+    deleteOneVideo(id: number) {
+        return this.vrepo.delete({ video_id: id })
+    }
 }
