@@ -27,7 +27,7 @@ export class VideosController {
     // CREATE ONE VIDEO
     @Post('/')
     createOneVideo(@Body() payload: CreateDTO) {
-        return null;
+        return this.vService.createOneVideo(payload);
     }
 
     // UPDATE ONE VIDEO
