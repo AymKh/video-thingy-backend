@@ -12,7 +12,7 @@ export class CommentsController {
         return this.commentService.getAllComment();
     }
 
-    @Get()
+    @Get(':id')
     getOneComment(@Param(':id', ParseIntPipe) id: number) {
         return this.commentService.getOneComment(id);
     }
