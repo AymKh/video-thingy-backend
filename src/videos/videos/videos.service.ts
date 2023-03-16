@@ -17,4 +17,9 @@ export class VideosService {
     fetchAllVideos() {
         return this.vrepo.find();
     }
+
+    // FETCH ONE
+    fetchOneVideo(id: number) {
+        return this.vrepo.find({ where: { video_id: id } });
+    }
 }

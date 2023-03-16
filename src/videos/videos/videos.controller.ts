@@ -12,15 +12,16 @@ export class VideosController {
 
     // GET ALL VIDEOS
     @Get('/')
-    getAllVideos() {
-        return this.vService.fetchAllVideos();
+    async getAllVideos() {
+        const data = await this.vService.fetchAllVideos();
+        return data;
     }
 
     // GET ONE VIDEO
     @Get(':id')
-    getOneVideo(@Param('id', ParseIntPipe) id: number) {
-        console.log('video...');
-        return id;
+    async getOneVideo(@Param('id', ParseIntPipe) id: number) {
+        const data = await this.vService.fetchOneVideo(id);
+        return data;
     }
 
     // CREATE ONE VIDEO
