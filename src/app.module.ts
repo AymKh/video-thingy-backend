@@ -1,7 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideosModule } from './videos/videos.module';
 
@@ -16,7 +14,7 @@ import { VideosModule } from './videos/videos.module';
     entities: ["dist/**/*.js"],
     synchronize: true,
   }), VideosModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule { }
