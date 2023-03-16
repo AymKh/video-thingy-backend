@@ -28,8 +28,6 @@ export class VideosService {
     async createOneVideo(paylaod: CreateVideoParams) {
         const data = this.vrepo.create({
             ...paylaod,
-            video_createdOn: new Date(),
-            video_modifiedOn: new Date(),
             video_views: 0,
             video_link: '#'
         });
@@ -43,7 +41,7 @@ export class VideosService {
     async updateOneVideo(id: number, paylaod: UpdateVideoParams) {
         return this.vrepo.update(
             { video_id: id },
-            { ...paylaod, video_modifiedOn: new Date() }
+            { ...paylaod }
         );
     }
 
