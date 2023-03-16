@@ -36,7 +36,7 @@ export class VideosController {
         @Param('id', ParseIntPipe) id: number,
         @Body() payload: UpdateDTO
     ) {
-        return null;
+        return this.vService.updateOneVideo(id, payload);
     }
 
     // DELETE ONE VIDEO

@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 // ENTITIES CONFIG
 import { Video } from 'src/typeorm/entities/Video';
-import { CreateVideoParams } from 'src/utils/types';
+import { CreateVideoParams, UpdateVideoParams } from 'src/utils/types';
 
 
 @Injectable()
@@ -37,6 +37,14 @@ export class VideosService {
         const saved = await this.vrepo.save(data);
 
         return saved;
+    }
+
+    // UPDATE ONE
+    async updateOneVideo(id: number, paylaod: UpdateVideoParams) {
+        return this.vrepo.update(
+            { video_id: id },
+            { ...paylaod, video_modifiedOn: new Date() }
+        );
     }
 
     // DELETE ONE
