@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('videos')
 export class Video {
@@ -22,9 +22,9 @@ export class Video {
     @Column()
     video_views: number;
 
-    @Column()
+    @CreateDateColumn()
     video_createdOn: Date;
 
-    @Column()
+    @UpdateDateColumn()
     video_modifiedOn: Date;
 }

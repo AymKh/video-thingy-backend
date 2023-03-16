@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('comments')
 export class Comment {
@@ -12,11 +12,11 @@ export class Comment {
     @Column()
     video: number;
 
-    @Column()
+    @CreateDateColumn()
     comment_created_on: Date;
 
-    @Column()
-    comment_modifiedon: Date;
+    @UpdateDateColumn()
+    comment_modified_on: Date;
 
     @Column()
     comment_up_votes: number;
