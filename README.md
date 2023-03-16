@@ -18,7 +18,6 @@ Write about 1-2 paragraphs describing the purpose of your project.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.  
 
 ### Installation
 
@@ -51,7 +50,7 @@ Or you could use a pipeline.
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
 ## ✍️ Authors <a name = "authors"></a>
-- [@AymKh](https://github.com/aymkh) - Idea & Initial work
+- [@AymKh](https://github.com/aymkh)  
 
 See also the list of [contributors](https://github.com/AymKh/video-thingy-backend/contributors) who participated in this project.
 
