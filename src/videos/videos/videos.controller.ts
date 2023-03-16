@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { VideosService } from './videos.service';
 // DTOS
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';
@@ -7,11 +8,12 @@ import { UpdateDTO } from './DTO/Update.dto';
 @Controller('videos')
 export class VideosController {
 
+    constructor(private vService: VideosService) { }
+
     // GET ALL VIDEOS
     @Get('/')
     getAllVideos() {
-        console.log('videos...');
-        return [];
+        return this.vService.fetchAllVideos();
     }
 
     // GET ONE VIDEO
