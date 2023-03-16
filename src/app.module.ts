@@ -2,6 +2,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideosModule } from './videos/videos.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -13,7 +14,7 @@ import { VideosModule } from './videos/videos.module';
     database: 'video-thingy',
     entities: ["dist/**/*.js"],
     synchronize: true,
-  }), VideosModule],
+  }), VideosModule, CommentsModule],
   controllers: [],
   providers: [],
 })
