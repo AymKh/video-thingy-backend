@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { VideosModule } from './videos/videos.module';
-import { CommentsModule } from './comments/comments.module';
+import { VideosModule } from './app/modules/videos/videos.module';
+import { CommentsModule } from './app/modules/comments/comments.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({

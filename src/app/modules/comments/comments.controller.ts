@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
-import { CommentsService } from './comments.service';
+import { CommentsService } from '../../services/comments/comments.service';
 
 @Controller('comments')
 export class CommentsController {

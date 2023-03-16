@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 // ENTITIES CONFIG
-import { Video } from 'src/typeorm/entities/Video';
+import { Video } from 'src/app/models/Video';
 import { CreateVideoParams, UpdateVideoParams } from 'src/utils/types';
 
 

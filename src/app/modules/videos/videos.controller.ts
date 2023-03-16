@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
-import { VideosService } from './videos.service';
+import { VideosService } from '../../services/videos/videos.service';
 // DTOS
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';

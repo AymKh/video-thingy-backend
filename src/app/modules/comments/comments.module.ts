@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
-import { CommentsController } from './comments/comments.controller';
-import { CommentsService } from './comments/comments.service';
-import { Comment } from 'src/typeorm/entities/Comment';
+import { CommentsController } from './comments.controller';
+import { CommentsService } from 'src/app/services/comments/comments.service';
+import { Comment } from 'src/app/models/Comment';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -10,4 +10,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   controllers: [CommentsController],
   providers: [CommentsService]
 })
-export class CommentsModule {}
+export class CommentsModule { }
