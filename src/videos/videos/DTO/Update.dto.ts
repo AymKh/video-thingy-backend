@@ -1,10 +1,16 @@
 /* eslint-disable prettier/prettier */
+import { ApiProperty } from '@nestjs/swagger';
+
 export class UpdateDTO {
+    @ApiProperty()
     title: string;
-    video_link: string;
+
+    @ApiProperty()
     video_genre: string;
+
+    @ApiProperty()
     video_visibility: boolean;
-    video_views: number;
-    video_createdOn: Date;
+
+    @ApiProperty()
     video_modifiedOn: Date;
 }
