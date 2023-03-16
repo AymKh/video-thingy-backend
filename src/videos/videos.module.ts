@@ -1,4 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
+import { VideosController } from './videos/videos.controller';
 
-@Module({})
-export class VideosModule {}
+@Module({
+  controllers: [VideosController]
+})
+export class VideosModule { }
