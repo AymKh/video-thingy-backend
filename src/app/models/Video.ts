@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Comment } from "./Comment";
 
 @Entity('videos')
 export class Video {
@@ -27,4 +28,7 @@ export class Video {
 
     @UpdateDateColumn()
     video_modifiedOn: Date;
+
+    @OneToMany(() => Comment, comment => comment.video_id)
+    comment_id: number;
 }
