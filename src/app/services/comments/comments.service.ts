@@ -9,12 +9,12 @@ export class CommentsService {
 
     constructor(@InjectRepository(Comment) private commentRepo: Repository<Comment>) { }
 
-    getAllComment() {
-        return this.commentRepo.find();
-    }
-
-    getOneComment(id: number) {
-        return this.commentRepo.find({ where: { comment_id: id } });
+    getAllComments(videoID: number) {
+        return this.commentRepo.find({
+            where: {
+                video: videoID
+            }
+        });
     }
 
 }

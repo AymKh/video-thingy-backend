@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { VideosService } from '../../services/videos/videos.service';
+import { CommentsService } from 'src/app/services/comments/comments.service';
 // DTOS
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';
@@ -8,7 +9,10 @@ import { UpdateDTO } from './DTO/Update.dto';
 @Controller('videos')
 export class VideosController {
 
-    constructor(private vService: VideosService) { }
+    constructor(
+        private vService: VideosService,
+        private cService: CommentsService
+    ) { }
 
     // GET ALL VIDEOS
     @Get('/')
@@ -21,6 +25,13 @@ export class VideosController {
     @Get(':id')
     async getOneVideo(@Param('id', ParseIntPipe) id: number) {
         const data = await this.vService.fetchOneVideo(id);
+        return data;
+    }
+
+    // GET COMMENTS FOR VIDEO
+    @Get(':id/comments')
+    async getCommentsForVideo(@Param('id', ParseIntPipe) id: number) {
+        const data = await this.cService.getAllComments(id);
         return data;
     }
 

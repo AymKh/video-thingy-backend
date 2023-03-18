@@ -7,13 +7,8 @@ export class CommentsController {
 
     constructor(private commentService: CommentsService) { }
 
-    @Get()
-    getAllComment() {
-        return this.commentService.getAllComment();
-    }
-
-    @Get(':id')
-    getOneComment(@Param(':id', ParseIntPipe) id: number) {
-        return this.commentService.getOneComment(id);
-    }
+    // @Get()
+    // getAllComments() {
+    //     return this.commentService.getAllComment();
+    // }
 }
