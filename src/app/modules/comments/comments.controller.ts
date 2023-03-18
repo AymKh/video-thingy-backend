@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Delete, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Body, Controller, Delete, Param, ParseIntPipe, Put } from '@nestjs/common';
 import { CommentsService } from 'src/app/services/comments/comments.service';
+import { UpdateCommentDTO } from './DTO/updateComment.dto';
 
 @Controller('comments')
 export class CommentsController {
@@ -10,5 +11,13 @@ export class CommentsController {
     @Delete(':id')
     deleteOneComment(@Param('id', ParseIntPipe) id: number) {
         return this.commentService.deleteOneComment(id);
+    }
+
+    @Put(':id')
+    updateOneComment(
+        @Param('id', ParseIntPipe) id: number,
+        @Body() payload: UpdateCommentDTO
+    ) {
+        return this.commentService.updateOneComment(id, payload);
     }
 }

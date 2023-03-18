@@ -18,7 +18,14 @@ export class CommentsService {
     }
 
     deleteOneComment(id: number) {
-        this.commentRepo.delete({ comment_id: id })
+        return this.commentRepo.delete({ comment_id: id })
+    }
+
+    updateOneComment(id: number, payload: any) {
+        return this.commentRepo.update(
+            { comment_id: id },
+            { ...payload }
+        )
     }
 
 }
