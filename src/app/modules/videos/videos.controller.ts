@@ -41,6 +41,15 @@ export class VideosController {
         return this.vService.createOneVideo(payload);
     }
 
+    // CREATE ONE COMMENT
+    @Post(':id/comments')
+    createOneComment(
+        @Body() payload: CreateDTO,
+        @Param('id', ParseIntPipe) id: number
+    ) {
+        return this.cService.createOneComment(id, payload);
+    }
+
     // UPDATE ONE VIDEO
     @Put(':id')
     async updateOneVideo(
