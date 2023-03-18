@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Delete, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CommentsService } from 'src/app/services/comments/comments.service';
 
 @Controller('comments')
@@ -7,8 +7,8 @@ export class CommentsController {
 
     constructor(private commentService: CommentsService) { }
 
-    // @Get()
-    // getAllComments() {
-    //     return this.commentService.getAllComment();
-    // }
+    @Delete(':id')
+    deleteOneComment(@Param('id', ParseIntPipe) id: number) {
+        return this.commentService.deleteOneComment(id);
+    }
 }

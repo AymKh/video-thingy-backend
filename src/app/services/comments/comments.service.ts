@@ -17,4 +17,8 @@ export class CommentsService {
         });
     }
 
+    deleteOneComment(id: number) {
+        this.commentRepo.delete({ comment_id: id })
+    }
+
 }
