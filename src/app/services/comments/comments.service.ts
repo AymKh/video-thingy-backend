@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Comment } from 'src/app/models/Comment';
 import { Video } from 'src/app/models/Video';
+import { CreateCommentParams, UpdateCommentParams } from 'src/utils/types';
 
 @Injectable()
 export class CommentsService {
@@ -13,12 +14,12 @@ export class CommentsService {
         @InjectRepository(Video) private videRepo: Repository<Video>
     ) { }
 
-    async createOneComment(videoID: number, payload: any) {
+    async createOneComment(videoID: number, payload: CreateCommentParams) {
         const video = await this.videRepo.findOneBy({ video_id: videoID });
 
         if (!video)
             throw new HttpException(
-                'User not found',
+                'Video not found',
                 HttpStatus.BAD_REQUEST
             )
 
@@ -30,19 +31,17 @@ export class CommentsService {
         return await this.commentRepo.save(data);
     }
 
-    getAllComments(videoID: number) {
-        return this.commentRepo.find({
-            where: {
-                video: videoID
-            }
-        });
+    async getAllComments(videoID: number) {
+        const videoFound = await this.videRepo.find({ where: { video_id: videoID }, relations: ['comments'] });
+        const result = await videoFound[0].comments;
+        return result;
     }
 
     deleteOneComment(id: number) {
         return this.commentRepo.delete({ comment_id: id })
     }
 
-    updateOneComment(id: number, payload: any) {
+    updateOneComment(id: number, payload: UpdateCommentParams) {
         return this.commentRepo.update(
             { comment_id: id },
             { ...payload }

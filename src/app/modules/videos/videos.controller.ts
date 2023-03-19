@@ -2,10 +2,11 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { VideosService } from '../../services/videos/videos.service';
 import { CommentsService } from 'src/app/services/comments/comments.service';
+import { ApiTags } from '@nestjs/swagger';
 // DTOS
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { CreateCommentDTO } from '../comments/DTO/createComment.dto';
 
 @Controller('videos')
 export class VideosController {
@@ -50,7 +51,7 @@ export class VideosController {
     @ApiTags('Comments')
     @Post(':id/comments')
     createOneComment(
-        @Body() payload: CreateDTO,
+        @Body() payload: CreateCommentDTO,
         @Param('id', ParseIntPipe) id: number
     ) {
         return this.cService.createOneComment(id, payload);

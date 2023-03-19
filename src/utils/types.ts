@@ -10,3 +10,15 @@ export class UpdateVideoParams {
     video_genre: string;
     video_visibility: boolean;
 }
+
+export class UpdateCommentParams {
+    comment_body: string;
+    comment_up_votes: number;
+    comment_down_votes: number;
+}
+
+export class CreateCommentParams {
+    comment_body: string;
+    comment_up_votes: number;
+    comment_down_votes: number;
+}

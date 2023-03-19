@@ -29,7 +29,7 @@ export class Video {
     @UpdateDateColumn()
     video_modifiedOn: Date;
 
-    @OneToMany(() => Comment, comment => comment.video_id)
+    @OneToMany(() => Comment, comment => comment.video)
     @JoinColumn()
-    comment_id: number[];
+    comments: Comment[];
 }

@@ -10,9 +10,6 @@ export class Comment {
     @Column()
     comment_body: string;
 
-    @Column()
-    video: number;
-
     @CreateDateColumn()
     comment_created_on: Date;
 
@@ -25,6 +22,6 @@ export class Comment {
     @Column()
     comment_down_votes: number;
 
-    @ManyToOne(() => Video, video => video.comment_id)
-    video_id: number;
+    @ManyToOne(() => Video, video => video.comments)
+    video: Video;
 }
