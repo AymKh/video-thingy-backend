@@ -5,6 +5,7 @@ import { CommentsService } from 'src/app/services/comments/comments.service';
 // DTOS
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('videos')
 export class VideosController {
@@ -15,6 +16,7 @@ export class VideosController {
     ) { }
 
     // GET ALL VIDEOS
+    @ApiTags('Videos')
     @Get('/')
     async getAllVideos() {
         const data = await this.vService.fetchAllVideos();
@@ -22,6 +24,7 @@ export class VideosController {
     }
 
     // GET ONE VIDEO
+    @ApiTags('Videos')
     @Get(':id')
     async getOneVideo(@Param('id', ParseIntPipe) id: number) {
         const data = await this.vService.fetchOneVideo(id);
@@ -29,6 +32,7 @@ export class VideosController {
     }
 
     // GET COMMENTS FOR VIDEO
+    @ApiTags('Comments')
     @Get(':id/comments')
     async getCommentsForVideo(@Param('id', ParseIntPipe) id: number) {
         const data = await this.cService.getAllComments(id);
@@ -36,12 +40,14 @@ export class VideosController {
     }
 
     // CREATE ONE VIDEO
+    @ApiTags('Videos')
     @Post('/')
     createOneVideo(@Body() payload: CreateDTO) {
         return this.vService.createOneVideo(payload);
     }
 
     // CREATE ONE COMMENT
+    @ApiTags('Comments')
     @Post(':id/comments')
     createOneComment(
         @Body() payload: CreateDTO,
@@ -51,6 +57,7 @@ export class VideosController {
     }
 
     // UPDATE ONE VIDEO
+    @ApiTags('Videos')
     @Put(':id')
     async updateOneVideo(
         @Param('id', ParseIntPipe) id: number,
@@ -60,6 +67,7 @@ export class VideosController {
     }
 
     // DELETE ONE VIDEO
+    @ApiTags('Videos')
     @Delete(':id')
     async deleteOneVideo(@Param('id', ParseIntPipe) id: number) {
         return this.vService.deleteOneVideo(id);
