@@ -22,3 +22,9 @@ export class CreateCommentParams {
     comment_up_votes: number;
     comment_down_votes: number;
 }
+
+export class CreateUsertParams {
+    username: string;
+    password: string;
+    passwordConfirmation: string;
+}
