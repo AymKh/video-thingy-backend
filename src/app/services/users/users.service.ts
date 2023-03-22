@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/app/models/User';
-import { CreateUsertParams } from 'src/utils/types';
+import { CreateUsertParams, UpdateUserParams } from 'src/utils/types';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -11,26 +11,27 @@ export class UsersService {
 
 
     getAllUsers() {
-        return [];
+        return this.userRepo.find();
     }
 
 
     getOneUser(id: number) {
-        return null;
+        return this.userRepo.findOneBy({ user_id: id });
     }
 
 
     createOneUser(payload: CreateUsertParams) {
-        return null;
+        const data = this.userRepo.create({ ...payload });
+        return this.userRepo.save(data);
     }
 
 
-    updateOneUser(id: number) {
-        return null;
+    updateOneUser(id: number, payload: UpdateUserParams) {
+        return this.userRepo.update({ user_id: id }, { ...payload });
     }
 
 
     deleteOneUser(id: number) {
-        return null;
+        return this.userRepo.delete({ user_id: id });
     }
 }

@@ -28,3 +28,9 @@ export class CreateUsertParams {
     password: string;
     passwordConfirmation: string;
 }
+
+export class UpdateUserParams {
+    username: string;
+    password: string;
+    passwordConfirmation: string;
+}
