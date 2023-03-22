@@ -32,7 +32,7 @@ export class AuthService {
         return this.jwtService.sign({
             id,
             email,
-            claim: type
+            type
         })
     }
 }
