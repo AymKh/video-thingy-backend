@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+// custom modules
 import { VideosModule } from './app/modules/videos/videos.module';
 import { CommentsModule } from './app/modules/comments/comments.module';
 import { UsersModule } from './app/modules/users/users.module';
+import { AuthModule } from './app/modules/auth/auth.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -15,7 +17,7 @@ import { UsersModule } from './app/modules/users/users.module';
     database: 'video-thingy',
     entities: ["dist/**/*.js"],
     synchronize: true,
-  }), VideosModule, CommentsModule, UsersModule],
+  }), VideosModule, CommentsModule, UsersModule, AuthModule],
   controllers: [],
   providers: [],
 })
