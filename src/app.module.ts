@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { VideosModule } from './app/modules/videos/videos.module';
 import { CommentsModule } from './app/modules/comments/comments.module';
 import { UsersModule } from './app/modules/users/users.module';
+import { UsersService } from './app/services/users/users.service';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -17,6 +18,6 @@ import { UsersModule } from './app/modules/users/users.module';
     synchronize: true,
   }), VideosModule, CommentsModule, UsersModule],
   controllers: [],
-  providers: [],
+  providers: [UsersService],
 })
 export class AppModule { }
