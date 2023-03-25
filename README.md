@@ -6,7 +6,6 @@
 ## 📝 Table of Contents
 
 - [📝 Table of Contents](#-table-of-contents)
-- [🧐 About ](#-about-)
 - [🏁 Getting Started ](#-getting-started-)
 - [🎈 Usage ](#-usage-)
   - [Installation](#installation)
@@ -18,9 +17,6 @@
 - [🎉 Acknowledgements ](#-acknowledgements-)
 - [License](#license)
 
-## 🧐 About <a name = "about"></a>
-
-Write about 1-2 paragraphs describing the purpose of your project.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -49,7 +45,8 @@ $ pnpm run start:prod
 
 ### API Documentation
 
-This project is using Swagger UI to document the API. please run the server and visit `http://localhost:3000/api#/`
+This project is using Swagger UI to document the API. please run the server and visit `http://localhost:3000/api#/`  
+if you're using postman or insomnia http clients, you could import the testable collection from [this URL](https://gist.githubusercontent.com/AymKh/0c007052ce22188a9779ba323f956019/raw/1279c59ba2916af0174faa5cec65b44751c29a3c/API_COLLECTION.json) or use the locally available file [API_COLLECTION](API_COLLECTION.json)
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
