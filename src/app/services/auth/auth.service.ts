@@ -19,6 +19,6 @@ export class AuthService {
         if (data.password !== payload.password) throw new UnauthorizedException('Credentials provided are incorrect.');
 
 
-        return null;
+        return data;
     }
 }
