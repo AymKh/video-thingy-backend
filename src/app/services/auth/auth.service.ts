@@ -17,8 +17,6 @@ export class AuthService {
         const data = await this.userRepo.findOneBy({ username: payload.username });
         if (!data) throw new UnauthorizedException('Credentials provided are incorrect.');
         if (data.password !== payload.password) throw new UnauthorizedException('Credentials provided are incorrect.');
-
-
         return data;
     }
 }
