@@ -42,6 +42,7 @@ export class VideosController {
     }
 
     // CREATE ONE VIDEO
+    @UseGuards(isAuthenticatedGuard)
     @ApiTags('Videos')
     @Post('/')
     createOneVideo(@Body() payload: CreateDTO) {
@@ -49,6 +50,7 @@ export class VideosController {
     }
 
     // CREATE ONE COMMENT
+    @UseGuards(isAuthenticatedGuard)
     @ApiTags('Comments')
     @Post(':id/comments')
     createOneComment(
@@ -59,6 +61,7 @@ export class VideosController {
     }
 
     // UPDATE ONE VIDEO
+    @UseGuards(isAuthenticatedGuard)
     @ApiTags('Videos')
     @Put(':id')
     async updateOneVideo(
@@ -69,6 +72,7 @@ export class VideosController {
     }
 
     // DELETE ONE VIDEO
+    @UseGuards(isAuthenticatedGuard)
     @ApiTags('Videos')
     @Delete(':id')
     async deleteOneVideo(@Param('id', ParseIntPipe) id: number) {
