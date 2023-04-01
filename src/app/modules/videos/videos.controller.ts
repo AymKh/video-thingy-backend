@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { VideosService } from '../../services/videos/videos.service';
 import { CommentsService } from 'src/app/services/comments/comments.service';
 import { ApiTags } from '@nestjs/swagger';
@@ -7,6 +7,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { CreateDTO } from './DTO/Create.dto';
 import { UpdateDTO } from './DTO/Update.dto';
 import { CreateCommentDTO } from '../comments/DTO/createComment.dto';
+import { isAuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 
 @Controller('videos')
 export class VideosController {

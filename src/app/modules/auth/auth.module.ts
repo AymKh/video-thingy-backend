@@ -12,7 +12,7 @@ import { User } from 'src/app/models/User';
 @Module({
   imports: [
     TypeOrmModule.forFeature([User]),
-    PassportModule.register({ session: true })
+    PassportModule.register({ defaultStrategy: 'local', session: true })
   ],
   controllers: [AuthController],
   providers: [

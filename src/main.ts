@@ -24,11 +24,10 @@ async function bootstrap() {
     secret: 'shhhh-tis-but-a-secret',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true, maxAge: 3600000 }
+    cookie: { maxAge: 3600000 }
   }));
-  passport.use(passport.initialize());
-  passport.use(passport.session());
-
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   await app.listen(3000);
 }

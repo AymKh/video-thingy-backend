@@ -14,9 +14,9 @@ export class AuthService {
     ) { }
 
     async signinLocal(payload: AuthDTO) {
-        const data = await this.userRepo.findOneBy({ username: payload.username });
-        if (!data) throw new UnauthorizedException('Credentials provided are incorrect.');
-        if (data.password !== payload.password) throw new UnauthorizedException('Credentials provided are incorrect.');
-        return data;
+        const user = await this.userRepo.findOneBy({ username: payload.username });
+        if (!user) throw new UnauthorizedException('Credentials provided are incorrect.');
+        if (user.password !== payload.password) throw new UnauthorizedException('Credentials provided are incorrect.');
+        return user;
     }
 }

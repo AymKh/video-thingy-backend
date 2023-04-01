@@ -11,7 +11,9 @@ export class AuthController {
 
     @UseGuards(LocalAuthGuard)
     @Post('signin')
-    signinLocal(@Request() req) { return req.user; }
+    signinLocal(@Request() req) {
+        return req.user;
+    }
 
     @Post('signup')
     signupLocal(@Body() payload: CreateUsertDTO) {
