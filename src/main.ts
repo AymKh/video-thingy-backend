@@ -21,7 +21,7 @@ async function bootstrap() {
 
   // SESSION CONFIGURATION
   app.use(session({
-    secret: 'shhhh-tis-but-a-secret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 3600000 }
