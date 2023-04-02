@@ -18,10 +18,19 @@ export class VideosController {
     ) { }
 
     // GET ALL VIDEOS
-    @ApiTags('Videos')
-    @Get('/')
+    @UseGuards(isAuthenticatedGuard)
+    @ApiTags('Videos/all')
+    @Get('/all')
     async getAllVideos() {
         const data = await this.vService.fetchAllVideos();
+        return data;
+    }
+
+    // GET ALL **PUBLIC** VIDEOS
+    @ApiTags('Videos')
+    @Get('/')
+    async getAllPublicVideos() {
+        const data = await this.vService.fetchAllPublicVideos();
         return data;
     }
 

@@ -19,6 +19,13 @@ export class VideosService {
         return this.vrepo.find();
     }
 
+    // FETCH ALL PUBLIC VIDEOS
+    fetchAllPublicVideos() {
+        return this.vrepo.find({
+            where: { video_visibility: true }
+        });
+    }
+
     // FETCH ONE
     fetchOneVideo(id: number) {
         return this.vrepo.find({ where: { video_id: id } });
